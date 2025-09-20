@@ -12,46 +12,50 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="is-loading">
+    <div class="preloader" role="status" aria-live="polite">
+      <div class="preloader-spinner" aria-hidden="true"></div>
+      <span class="preloader-text">Preparing your dashboard…</span>
+    </div>
     <div class="app-shell">
       <aside class="sidebar">
         <div class="logo">JEDI</div>
         <nav class="menu">
           <a href="#" class="menu-item active">
             <span class="icon">🏠</span>
-            Home
+            <span class="label">Home</span>
           </a>
           <a href="#" class="menu-item">
             <span class="icon">📅</span>
-            Schedule
+            <span class="label">Schedule</span>
           </a>
           <a href="#" class="menu-item">
             <span class="icon">🧑‍🏫</span>
-            Trainers
+            <span class="label">Trainers</span>
           </a>
           <a href="#" class="menu-item">
             <span class="icon">📚</span>
-            Policy Library
+            <span class="label">Policy Library</span>
           </a>
           <a href="#" class="menu-item">
             <span class="icon">⚙️</span>
-            Preferences
+            <span class="label">Preferences</span>
           </a>
           <a href="#" class="menu-item">
             <span class="icon">🚪</span>
-            Log out
+            <span class="label">Log out</span>
           </a>
         </nav>
       </aside>
       <main class="content">
-        <div class="top-bar">
+        <div class="top-bar fade-in" style="--delay: 0.05s">
           <h1>Trainer info</h1>
           <div class="search">
             <input type="search" placeholder="Find courses, trainers, classes" />
           </div>
         </div>
         <section class="grid">
-          <article class="trainer-card">
+          <article class="trainer-card fade-in" style="--delay: 0.1s">
             <header class="trainer-header">
               <div class="avatar">
                 <img
@@ -83,12 +87,12 @@
               </div>
             </div>
             <div class="trainer-actions">
-              <button class="primary">Request session</button>
-              <button class="secondary">Portfolio</button>
+              <button class="primary" type="button">Request session</button>
+              <button class="secondary" type="button">Portfolio</button>
             </div>
           </article>
 
-          <article class="work-experience">
+          <article class="work-experience fade-in" style="--delay: 0.2s">
             <header>
               <h3>Work experience</h3>
             </header>
@@ -111,7 +115,7 @@
             </ul>
           </article>
 
-          <article class="student-reviews">
+          <article class="student-reviews fade-in" style="--delay: 0.3s">
             <header class="reviews-header">
               <h3>Students reviews</h3>
               <div class="rating">4.4 / 5.0</div>
@@ -136,26 +140,26 @@
             </div>
           </article>
 
-          <article class="students">
+          <article class="students fade-in" style="--delay: 0.4s">
             <header>
               <h3>Latest testimonials</h3>
             </header>
             <div class="student-cards">
-              <div class="student-card">
+              <div class="student-card" tabindex="0">
                 <div class="name">Nick H.</div>
                 <p>
                   "Hillary makes complex topics simple and engaging. I felt
                   supported throughout the course."
                 </p>
               </div>
-              <div class="student-card">
+              <div class="student-card" tabindex="0">
                 <div class="name">Stephanie W.</div>
                 <p>
                   "Her projects mirror real-life scenarios, which helped me land
                   a junior dev role."
                 </p>
               </div>
-              <div class="student-card">
+              <div class="student-card" tabindex="0">
                 <div class="name">Vane F.</div>
                 <p>
                   "Clear explanations, friendly mentorship, and high energy in
@@ -167,5 +171,97 @@
         </section>
       </main>
     </div>
+    <div class="prototype-toast" aria-live="polite"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const preloader = document.querySelector(".preloader");
+        const appShell = document.querySelector(".app-shell");
+        const body = document.body;
+
+        const revealApp = () => {
+          if (preloader) {
+            preloader.classList.add("preloader--hidden");
+          }
+          if (appShell) {
+            appShell.classList.add("is-visible");
+          }
+          body.classList.remove("is-loading");
+          if (preloader) {
+            window.setTimeout(() => {
+              preloader.remove();
+            }, 600);
+          }
+        };
+
+        window.setTimeout(revealApp, 2000);
+
+        const menuItems = document.querySelectorAll(".menu-item");
+        const pageTitle = document.querySelector(".top-bar h1");
+
+        menuItems.forEach((item) => {
+          item.addEventListener("click", (event) => {
+            event.preventDefault();
+            menuItems.forEach((el) => el.classList.remove("active"));
+            item.classList.add("active");
+
+            const label = item.querySelector(".label");
+            if (label && pageTitle) {
+              pageTitle.textContent = label.textContent.trim();
+            }
+          });
+        });
+
+        const toast = document.querySelector(".prototype-toast");
+        const showToast = (message) => {
+          if (!toast) return;
+          toast.textContent = message;
+          toast.classList.add("prototype-toast--visible");
+          window.setTimeout(() => {
+            toast.classList.remove("prototype-toast--visible");
+          }, 1800);
+        };
+
+        const requestButton = document.querySelector("button.primary");
+        if (requestButton) {
+          requestButton.addEventListener("click", () => {
+            showToast("Session request sent!");
+          });
+        }
+
+        const portfolioButton = document.querySelector("button.secondary");
+        if (portfolioButton) {
+          portfolioButton.addEventListener("click", () => {
+            const newWindow = window.open(
+              "https://example.com/portfolio",
+              "_blank",
+              "noopener,noreferrer"
+            );
+            if (newWindow) {
+              newWindow.opener = null;
+            }
+          });
+        }
+
+        const studentCards = document.querySelectorAll(".student-card");
+        studentCards.forEach((card) => {
+          const activateCard = () => {
+            studentCards.forEach((item) => item.classList.remove("selected"));
+            card.classList.add("selected");
+            const name = card.querySelector(".name");
+            if (name) {
+              showToast(`${name.textContent.trim()} highlighted`);
+            }
+          };
+
+          card.addEventListener("click", activateCard);
+          card.addEventListener("keypress", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              activateCard();
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

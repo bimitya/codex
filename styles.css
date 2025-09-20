@@ -32,6 +32,52 @@ body {
   color: var(--text);
 }
 
+body.is-loading {
+  overflow: hidden;
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: rgba(245, 235, 218, 0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 20;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid rgba(31, 43, 44, 0.15);
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+
+.preloader-text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .app-shell {
   display: flex;
   width: min(1140px, 94vw);
@@ -40,6 +86,28 @@ body {
   border-radius: 28px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.app-shell.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.app-shell.is-visible .fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sidebar {
@@ -74,6 +142,10 @@ body {
   font-weight: 600;
   color: var(--text);
   transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-item .label {
+  white-space: nowrap;
 }
 
 .menu-item:hover,
@@ -354,6 +426,20 @@ button:hover {
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.85);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.student-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.student-card.selected {
+  border-color: var(--highlight-border);
+  background: #fffef5;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(20, 30, 35, 0.12);
 }
 
 .student-card .name {
@@ -366,6 +452,28 @@ button:hover {
   font-size: 14px;
   color: #5d4d34;
   line-height: 1.4;
+}
+
+.prototype-toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: rgba(31, 43, 44, 0.85);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 0 18px 30px rgba(15, 25, 25, 0.28);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 30;
+}
+
+.prototype-toast--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 1000px) {
