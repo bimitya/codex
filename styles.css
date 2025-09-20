@@ -275,7 +275,8 @@ article {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .stat .label {
