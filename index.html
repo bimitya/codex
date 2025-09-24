@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trainer Dashboard</title>
+    <title>PrefabHub - Modern Prefab Directory</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,117 +15,143 @@
   <body class="is-loading">
     <div class="preloader" role="status" aria-live="polite">
       <div class="preloader-spinner" aria-hidden="true"></div>
-      <span class="preloader-text">Preparing your dashboard…</span>
+      <span class="preloader-text">Loading PrefabHub…</span>
     </div>
     <div class="app-shell">
       <aside class="sidebar">
-        <div class="logo">JEDI</div>
+        <div class="logo">PrefabHub</div>
         <nav class="menu">
           <a href="#" class="menu-item active">
             <span class="icon">🏠</span>
             <span class="label">Home</span>
           </a>
           <a href="#" class="menu-item">
-            <span class="icon">📅</span>
-            <span class="label">Schedule</span>
+            <span class="icon">🏗️</span>
+            <span class="label">Browse Prefabs</span>
           </a>
           <a href="#" class="menu-item">
-            <span class="icon">🧑‍🏫</span>
-            <span class="label">Trainers</span>
+            <span class="icon">🏢</span>
+            <span class="label">Manufacturers</span>
           </a>
           <a href="#" class="menu-item">
-            <span class="icon">📚</span>
-            <span class="label">Policy Library</span>
+            <span class="icon">📋</span>
+            <span class="label">Categories</span>
           </a>
           <a href="#" class="menu-item">
-            <span class="icon">⚙️</span>
-            <span class="label">Preferences</span>
+            <span class="icon">💡</span>
+            <span class="label">Inspiration</span>
           </a>
           <a href="#" class="menu-item">
-            <span class="icon">🚪</span>
-            <span class="label">Log out</span>
+            <span class="icon">📞</span>
+            <span class="label">Contact</span>
           </a>
         </nav>
       </aside>
       <main class="content">
         <div class="top-bar fade-in" style="--delay: 0.05s">
-          <h1>Trainer info</h1>
+          <h1>Discover Modern Prefabs</h1>
           <div class="search">
-            <input type="search" placeholder="Find courses, trainers, classes" />
+            <input type="search" placeholder="Search prefabs, manufacturers, styles..." />
           </div>
         </div>
+        <section class="hero-section fade-in" style="--delay: 0.1s">
+          <div class="hero-content">
+            <h2>Find Your Perfect Prefab Home</h2>
+            <p>Discover modern, sustainable, and affordable prefabricated homes from trusted manufacturers worldwide.</p>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="label">500+</span>
+                <span class="description">Prefab Models</span>
+              </div>
+              <div class="stat">
+                <span class="label">150+</span>
+                <span class="description">Manufacturers</span>
+              </div>
+              <div class="stat">
+                <span class="label">25+</span>
+                <span class="description">Countries</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="grid">
-          <article class="trainer-card fade-in" style="--delay: 0.1s">
-            <header class="trainer-header">
-              <div class="avatar">
+          <article class="featured-prefab fade-in" style="--delay: 0.2s">
+            <header class="prefab-header">
+              <div class="prefab-image">
                 <img
-                  src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=500&q=80"
-                  alt="Portrait of Hillary Bale"
+                  src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=500&q=80"
+                  alt="Modern prefab home exterior"
                 />
               </div>
-              <div class="trainer-details">
-                <h2>Hillary Bale</h2>
-                <p class="email">hil.bale@gmail.com</p>
+              <div class="prefab-details">
+                <h2>Modern EcoHouse 120</h2>
+                <p class="manufacturer">by EcoBuild Solutions</p>
                 <div class="tagline">
-                  Hillary is a supportive, hands-on instructor with a passion for
-                  teaching code to new developers.
+                  A stunning 120m² modern prefab home featuring sustainable materials, 
+                  energy-efficient design, and contemporary architecture.
                 </div>
               </div>
             </header>
-            <div class="trainer-stats">
-              <div class="stat">
-                <span class="label">10+</span>
-                <span class="description">Years of teaching</span>
+            <div class="prefab-specs">
+              <div class="spec">
+                <span class="label">120m²</span>
+                <span class="description">Living Space</span>
               </div>
-              <div class="stat">
-                <span class="label">5 yrs</span>
-                <span class="description">As a developer</span>
+              <div class="spec">
+                <span class="label">3 bed</span>
+                <span class="description">Bedrooms</span>
               </div>
-              <div class="stat">
-                <span class="label">12</span>
-                <span class="description">Courses created</span>
+              <div class="spec">
+                <span class="label">€85k</span>
+                <span class="description">Starting Price</span>
               </div>
             </div>
-            <div class="trainer-actions">
-              <button class="primary" type="button">Request session</button>
-              <button class="secondary" type="button">Portfolio</button>
+            <div class="prefab-actions">
+              <button class="primary" type="button">View Details</button>
+              <button class="secondary" type="button">Get Quote</button>
             </div>
           </article>
 
-          <article class="work-experience fade-in" style="--delay: 0.2s">
+          <article class="categories fade-in" style="--delay: 0.3s">
             <header>
-              <h3>Work experience</h3>
+              <h3>Browse by Category</h3>
             </header>
-            <ul class="experience-list">
+            <ul class="category-list">
               <li>
-                <div class="role">Senior JavaScript Developer</div>
-                <div class="company">Freelancer</div>
-                <div class="period">May 2022 – present</div>
+                <div class="category-icon">🏠</div>
+                <div class="category-name">Residential Homes</div>
+                <div class="category-count">245 models</div>
               </li>
               <li>
-                <div class="role">Senior JavaScript Developer</div>
-                <div class="company">Pro Agency Maintenance</div>
-                <div class="period">Jan 2019 – May 2022</div>
+                <div class="category-icon">🏢</div>
+                <div class="category-name">Commercial Buildings</div>
+                <div class="category-count">89 models</div>
               </li>
               <li>
-                <div class="role">Senior JavaScript Developer</div>
-                <div class="company">Core Team Academy</div>
-                <div class="period">Mar 2015 – Jan 2019</div>
+                <div class="category-icon">🏕️</div>
+                <div class="category-name">Tiny Houses</div>
+                <div class="category-count">156 models</div>
+              </li>
+              <li>
+                <div class="category-icon">🏭</div>
+                <div class="category-name">Modular Offices</div>
+                <div class="category-count">67 models</div>
               </li>
             </ul>
           </article>
 
-          <article class="student-reviews fade-in" style="--delay: 0.3s">
-            <header class="reviews-header">
-              <h3>Students reviews</h3>
-              <div class="rating">4.4 / 5.0</div>
+          <article class="trending fade-in" style="--delay: 0.4s">
+            <header class="trending-header">
+              <h3>Trending This Week</h3>
+              <div class="trend-indicator">📈 +15%</div>
             </header>
-            <div class="reviews-body">
-              <div class="score">
-                <div class="score-value">127</div>
-                <div class="score-label">ratings from students</div>
+            <div class="trending-body">
+              <div class="trending-stats">
+                <div class="trend-value">2,847</div>
+                <div class="trend-label">views this week</div>
               </div>
-              <div class="chart">
+              <div class="trending-chart">
                 <svg viewBox="0 0 180 70" xmlns="http://www.w3.org/2000/svg">
                   <polyline
                     fill="none"
@@ -140,30 +166,30 @@
             </div>
           </article>
 
-          <article class="students fade-in" style="--delay: 0.4s">
+          <article class="testimonials fade-in" style="--delay: 0.5s">
             <header>
-              <h3>Latest testimonials</h3>
+              <h3>Customer Stories</h3>
             </header>
-            <div class="student-cards">
-              <div class="student-card" tabindex="0">
-                <div class="name">Nick H.</div>
+            <div class="testimonial-cards">
+              <div class="testimonial-card" tabindex="0">
+                <div class="customer-name">Sarah M.</div>
                 <p>
-                  "Hillary makes complex topics simple and engaging. I felt
-                  supported throughout the course."
+                  "Found our dream prefab home in just 2 weeks. The process was 
+                  smooth and the quality exceeded our expectations."
                 </p>
               </div>
-              <div class="student-card" tabindex="0">
-                <div class="name">Stephanie W.</div>
+              <div class="testimonial-card" tabindex="0">
+                <div class="customer-name">James L.</div>
                 <p>
-                  "Her projects mirror real-life scenarios, which helped me land
-                  a junior dev role."
+                  "The energy efficiency of our prefab home has cut our utility 
+                  bills by 40%. Highly recommend!"
                 </p>
               </div>
-              <div class="student-card" tabindex="0">
-                <div class="name">Vane F.</div>
+              <div class="testimonial-card" tabindex="0">
+                <div class="customer-name">Maria R.</div>
                 <p>
-                  "Clear explanations, friendly mentorship, and high energy in
-                  every session."
+                  "From design to delivery, everything was handled professionally. 
+                  Our new home was ready in 3 months!"
                 </p>
               </div>
             </div>
@@ -221,35 +247,28 @@
           }, 1800);
         };
 
-        const requestButton = document.querySelector("button.primary");
-        if (requestButton) {
-          requestButton.addEventListener("click", () => {
-            showToast("Session request sent!");
+        const viewDetailsButton = document.querySelector("button.primary");
+        if (viewDetailsButton) {
+          viewDetailsButton.addEventListener("click", () => {
+            showToast("Opening prefab details...");
           });
         }
 
-        const portfolioButton = document.querySelector("button.secondary");
-        if (portfolioButton) {
-          portfolioButton.addEventListener("click", () => {
-            const newWindow = window.open(
-              "https://example.com/portfolio",
-              "_blank",
-              "noopener,noreferrer"
-            );
-            if (newWindow) {
-              newWindow.opener = null;
-            }
+        const getQuoteButton = document.querySelector("button.secondary");
+        if (getQuoteButton) {
+          getQuoteButton.addEventListener("click", () => {
+            showToast("Quote request sent to manufacturer!");
           });
         }
 
-        const studentCards = document.querySelectorAll(".student-card");
-        studentCards.forEach((card) => {
+        const testimonialCards = document.querySelectorAll(".testimonial-card");
+        testimonialCards.forEach((card) => {
           const activateCard = () => {
-            studentCards.forEach((item) => item.classList.remove("selected"));
+            testimonialCards.forEach((item) => item.classList.remove("selected"));
             card.classList.add("selected");
-            const name = card.querySelector(".name");
+            const name = card.querySelector(".customer-name");
             if (name) {
-              showToast(`${name.textContent.trim()} highlighted`);
+              showToast(`${name.textContent.trim()}'s story highlighted`);
             }
           };
 
@@ -261,6 +280,17 @@
             }
           });
         });
+
+        // Add search functionality
+        const searchInput = document.querySelector(".search input");
+        if (searchInput) {
+          searchInput.addEventListener("input", (event) => {
+            const query = event.target.value.toLowerCase();
+            if (query.length > 2) {
+              showToast(`Searching for "${query}"...`);
+            }
+          });
+        }
       });
     </script>
   </body>
