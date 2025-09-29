@@ -1,3 +1,39 @@
+### Google Places Texas Home Builders Scraper
+
+Searches Google Maps Places for businesses in Texas matching prefab/modular/manufactured home builder terms and exports a CSV.
+
+#### Setup
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Set your API key via env var or pass as a flag:
+
+```bash
+export GOOGLE_MAPS_API_KEY=YOUR_KEY
+```
+
+#### Run
+
+```bash
+python places_texas_search.py --out results.csv \
+  --grid-step 1.0 --radius 50000 --max-pages 3
+```
+
+Flags:
+- **--keywords**: Optional list to override default terms.
+- **--grid-step**: Degrees between grid points over Texas bounds.
+- **--radius**: Meters for Text Search (max 50000 per API).
+- **--max-pages**: Up to 3 pages per query.
+
+Output CSV columns:
+- business name, Place ID, website URL, phone, full address, average rating, rating count
+
+Notes:
+- This uses Text Search + Place Details. Results are de-duplicated by Place ID and filtered to Texas.
+- Respect Google Maps Platform Terms of Service and your quota.
 # PrefabHub - Modern Prefab Directory
 
 A beautiful, modern homepage for a prefab directory showcasing prefabricated homes and buildings from manufacturers worldwide.
